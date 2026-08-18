@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DOINIK TALASH TV</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>DOINIK TALASH TV</h1>
+        <p>Your trusted source for the latest news</p>
+
+        <form class="search-box" action="search.html" method="GET">
+            <input
+                type="text"
+                id="search-input"
+                name="query"
+                placeholder="Search news..."
+            >
+            <button type="submit" id="search-button">Search</button>
+        </form>
+    </header>
+
+    <nav id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="category.html?category=national">National</a>
+        <a href="category.html?category=politics">Politics</a>
+        <a href="category.html?category=world">World</a>
+        <a href="category.html?category=sports">Sports</a>
+        <a href="category.html?category=business">Business</a>
+        <a href="category.html?category=technology">Technology</a>
+        <a href="category.html?category=entertainment">Entertainment</a>
+    </nav>
+
+    <main>
+
+        <section class="breaking-news">
+    <strong>BREAKING NEWS</strong>
+    <span id="breaking-news-text">Loading latest breaking news...</span>
+</section>
+
+        <section class="featured">
+            <h2>Featured News</h2>
+
+           <article id="featured-article">
+    <div class="featured-image">
+        <img
+            id="featured-image"
+            src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80"
+            alt="Featured news">
+    </div>
+
+    <div class="featured-content">
+        <span class="category" id="featured-category">NATIONAL</span>
+
+        <h3 id="featured-title">
+            Loading featured news...
+        </h3>
+
+        <p id="featured-description">
+            Loading the latest featured story...
+        </p>
+
+        <a id="featured-link" href="article.html?id=1" class="read-more">
+            Read More
+        </a>
+    </div>
+</article>
+
+        </section>
+
+        <section class="latest-news">
+
+            <h2>Latest News</h2>
+
+            <div class="news-grid" id="api-news-grid">
+                <p>Loading latest news...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DOINIK TALASH TV. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | DOINIK TALASH TV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>DOINIK TALASH TV</h1>
+        <p>Your trusted source for the latest news</p>
+    </header>
+
+<nav id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="category.html?category=national">National</a>
+        <a href="category.html?category=politics">Politics</a>
+        <a href="category.html?category=world">World</a>
+        <a href="category.html?category=sports">Sports</a>
+        <a href="category.html?category=business">Business</a>
+        <a href="category.html?category=technology">Technology</a>
+        <a href="category.html?category=entertainment">Entertainment</a>
+    </nav>
+
+    <main>
+        <article class="article-page">
+            <span class="category" id="article-category">NEWS</span>
+            <h2 id="article-title">Loading article...</h2>
+            <p class="article-meta" id="article-meta"></p>
+            <img id="article-image" src="" alt="News" class="article-image">
+            <div class="article-content">
+                <p id="article-description">Loading article description...</p>
+                <p id="article-content-text">Loading article content...</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DOINIK TALASH TV. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const articleId = new URLSearchParams(window.location.search).get("id");
+        const titleEl = document.getElementById("article-title");
+        const categoryEl = document.getElementById("article-category");
+        const descriptionEl = document.getElementById("article-description");
+        const contentEl = document.getElementById("article-content-text");
+        const imageEl = document.getElementById("article-image");
+        const metaEl = document.getElementById("article-meta");
+
+        function showArticleError(message) {
+            titleEl.textContent = "Article Not Found";
+            descriptionEl.textContent = message;
+            contentEl.textContent = "Please return to the homepage and select another article.";
+            imageEl.removeAttribute("src");
+        }
+
+        if (!articleId || !/^\d+$/.test(articleId)) {
+            showArticleError("No valid article ID was provided.");
+        } else {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 8000);
+
+            fetch(`/api/news/${articleId}`, { signal: controller.signal })
+                .then(response => {
+                    if (!response.ok) throw new Error(`Article API returned ${response.status}`);
+                    return response.json();
+                })
+                .then(article => {
+                    categoryEl.textContent = String(article.category || "NEWS").toUpperCase();
+                    titleEl.textContent = article.title || "Untitled article";
+                    descriptionEl.textContent = article.description || "";
+                    contentEl.textContent = article.content || "";
+
+                    if (article.image) {
+                        imageEl.src = article.image;
+                        imageEl.alt = article.title || "News";
+                    } else {
+                        imageEl.removeAttribute("src");
+                    }
+
+                    if (article.created_at) {
+                        const date = new Date(article.created_at);
+                        metaEl.textContent = `Published: ${isNaN(date) ? article.created_at : date.toLocaleString()} | By DOINIK TALASH TV`;
+                    } else {
+                        metaEl.textContent = "By DOINIK TALASH TV";
+                    }
+
+                    document.title = `${article.title || "Article"} | DOINIK TALASH TV`;
+                })
+                .catch(error => {
+                    console.error("Failed to load article:", error);
+                    showArticleError(error.name === "AbortError" ? "The article server took too long to respond." : "The requested article could not be loaded.");
+                })
+                .finally(() => clearTimeout(timeout));
+        }
+    </script>
+</body>
+</html>

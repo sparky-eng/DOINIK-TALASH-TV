@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search | DOINIK TALASH TV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>DOINIK TALASH TV</h1>
+        <p>Your trusted source for the latest news</p>
+        <form class="search-box" action="search.html" method="GET">
+            <input type="text" id="search-input" name="query" placeholder="Search news..." autocomplete="off">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <nav id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="category.html?category=national">National</a>
+        <a href="category.html?category=politics">Politics</a>
+        <a href="category.html?category=world">World</a>
+        <a href="category.html?category=sports">Sports</a>
+        <a href="category.html?category=business">Business</a>
+        <a href="category.html?category=technology">Technology</a>
+        <a href="category.html?category=entertainment">Entertainment</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2 id="search-title">Search News</h2>
+            <div class="news-grid" id="search-results">
+                <p>Enter a keyword above to search for news.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DOINIK TALASH TV. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const query = new URLSearchParams(window.location.search).get("query");
+        const title = document.getElementById("search-title");
+        const results = document.getElementById("search-results");
+
+        function escapeHtml(value) {
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/\"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        if (!query || !query.trim()) {
+            title.textContent = "Search News";
+        } else {
+            const cleanQuery = query.trim();
+            title.textContent = `Search Results for "${cleanQuery}"`;
+            results.innerHTML = "<p>Searching...</p>";
+
+            fetch(`/api/news/search?q=${encodeURIComponent(cleanQuery)}`)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Search API returned ${response.status}`);
+                    return response.json();
+                })
+                .then(news => {
+                    results.innerHTML = "";
+
+                    if (!Array.isArray(news) || news.length === 0) {
+                        results.innerHTML = `<p>No news found for "<strong>${escapeHtml(cleanQuery)}</strong>".</p>`;
+                        return;
+                    }
+
+                    news.forEach(item => {
+                        const card = document.createElement("article");
+                        card.className = "news-card";
+                        const id = Number(item.id);
+                        const titleText = escapeHtml(item.title || "Untitled news");
+                        card.innerHTML = `
+                            <div class="card-image">
+                                <img src="${escapeHtml(item.image || "")}" alt="${titleText}" loading="lazy">
+                            </div>
+                            <span class="category">${escapeHtml(String(item.category || "NEWS").toUpperCase())}</span>
+                            <h3><a href="article.html?id=${id}">${titleText}</a></h3>
+                            <p>${escapeHtml(item.description || "")}</p>
+                            <a href="article.html?id=${id}" class="read-more">Read More</a>
+                        `;
+                        results.appendChild(card);
+                    });
+                })
+                .catch(error => {
+                    console.error("Search failed:", error);
+                    results.innerHTML = "<p>Unable to load search results right now.</p>";
+                });
+        }
+    </script>
+    <script>
+    function setActiveNavigation() {
+        const navLinks = document.querySelectorAll("#main-nav a");
+        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+        const currentCategory = new URLSearchParams(window.location.search).get("category");
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+
+            const href = link.getAttribute("href");
+
+            if (currentPage === "index.html" && href === "index.html") {
+                link.classList.add("active");
+            }
+
+            if (
+                currentPage === "category.html" &&
+                currentCategory &&
+                href === `category.html?category=${currentCategory}`
+            ) {
+                link.classList.add("active");
+            }
+        });
+    }
+
+    setActiveNavigation();
+</script>
+</body>
+</html>

@@ -1,0 +1,828 @@
+/* =========================================
+   DOINIK TALASH TV
+   Main Website Styles
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #d71920;
+    --dark-red: #a90f15;
+    --black: #111111;
+    --text: #222222;
+    --muted: #707070;
+    --light: #f5f5f5;
+    --white: #ffffff;
+    --border: #e5e5e5;
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+
+header {
+    background: var(--white);
+    text-align: center;
+    padding: 28px 20px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: var(--black);
+}
+
+header h1::first-letter {
+    color: var(--red);
+}
+
+header p {
+    color: var(--muted);
+    margin-top: 4px;
+    font-size: 15px;
+}
+
+/* =========================================
+   SEARCH
+   ========================================= */
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    max-width: 650px;
+    margin: 20px auto 0;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 16px;
+    border: 1px solid #cccccc;
+    border-right: none;
+    font-size: 15px;
+    outline: none;
+    background: var(--white);
+}
+
+.search-box input:focus {
+    border-color: var(--red);
+}
+
+.search-box button {
+    padding: 13px 24px;
+    border: none;
+    background: var(--red);
+    color: var(--white);
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.search-box button:hover {
+    background: var(--dark-red);
+}
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+nav {
+    background: var(--black);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 4px solid var(--red);
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 14px 17px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+nav a.active {
+    background: var(--red);
+    color: var(--white);
+}
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+main {
+    width: 92%;
+    max-width: 1250px;
+    margin: 28px auto;
+}
+
+/* =========================================
+   BREAKING NEWS
+   ========================================= */
+
+.breaking-news {
+    display: flex;
+    position: relative;
+    align-items: center;
+    background: var(--white);
+    border-left: 5px solid var(--red);
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.breaking-news strong {
+    background: var(--red);
+    color: var(--white);
+    padding: 12px 20px;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.breaking-news span {
+    padding: 12px 18px;
+    color: #444;
+    font-size: 14px;
+    white-space: nowrap;
+    display: block;
+    animation: breakingNews 18s linear infinite;
+}
+
+@keyframes breakingNews {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* =========================================
+   SECTION HEADINGS
+   ========================================= */
+
+section h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--red);
+    padding-left: 12px;
+    line-height: 1.2;
+}
+
+/* =========================================
+   FEATURED NEWS
+   ========================================= */
+
+.featured {
+    margin-bottom: 40px;
+}
+
+.featured article {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    background: var(--white);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.featured-image {
+    min-height: 370px;
+    background: #dddddd;
+    overflow: hidden;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.featured article:hover .featured-image img {
+    transform: scale(1.03);
+}
+
+.featured-content {
+    padding: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.category {
+    display: inline-block;
+    color: var(--red);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 9px;
+}
+
+.featured-content h3 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.featured-content p {
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+/* =========================================
+   READ MORE BUTTON
+   ========================================= */
+
+.read-more {
+    display: inline-block;
+    width: fit-content;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    padding: 11px 20px;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+.read-more:hover {
+    background: var(--dark-red);
+}
+
+/* =========================================
+   LATEST NEWS
+   ========================================= */
+
+.latest-news {
+    margin-top: 20px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.news-card {
+    background: var(--white);
+    padding-bottom: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+    height: 200px;
+    background: #dddddd;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.news-card:hover .card-image img {
+    transform: scale(1.06);
+}
+
+.news-card .category,
+.news-card h3,
+.news-card p {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.news-card .category {
+    margin-top: 16px;
+}
+
+.news-card h3 {
+    font-size: 19px;
+    line-height: 1.35;
+    margin-bottom: 9px;
+}
+
+.news-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.news-card h3 a:hover {
+    color: var(--red);
+}
+
+.news-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
+button {
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+button:hover {
+    background: var(--dark-red);
+}
+
+/* =========================================
+   ARTICLE PAGE
+   ========================================= */
+
+.article-page {
+    background: var(--white);
+    padding: 42px;
+    box-shadow: var(--shadow);
+}
+
+.article-page h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin: 8px 0 14px;
+}
+
+.article-meta {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 15px;
+}
+
+.article-image {
+    width: 100%;
+    max-height: 560px;
+    object-fit: cover;
+    display: block;
+    background: #eeeeee;
+}
+
+.article-content {
+    max-width: 900px;
+    margin: 30px auto 0;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.article-content p {
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    background: var(--black);
+    color: #aaaaaa;
+    text-align: center;
+    padding: 28px 20px;
+    margin-top: 50px;
+    border-top: 4px solid var(--red);
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .featured article {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-image {
+        min-height: 300px;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featured-content h3 {
+        font-size: 28px;
+    }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 22px 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .search-box input {
+        font-size: 14px;
+    }
+
+    .search-box button {
+        padding: 12px 16px;
+    }
+
+    nav {
+        justify-content: flex-start;
+    }
+
+    nav a {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+
+    main {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .breaking-news {
+        display: block;
+    }
+
+    .breaking-news strong {
+        display: block;
+    }
+
+    .breaking-news span {
+        display: block;
+    }
+
+    section h2 {
+        font-size: 23px;
+    }
+
+    .featured-image {
+        min-height: 230px;
+    }
+
+    .featured-content {
+        padding: 25px;
+    }
+
+    .featured-content h3 {
+        font-size: 24px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card-image {
+        height: 210px;
+    }
+
+    .article-page {
+        padding: 22px;
+    }
+
+    .article-page h2 {
+        font-size: 27px;
+    }
+
+    .article-content {
+        font-size: 16px;
+    }
+}
+/* =========================================
+   ADMIN PANEL
+   ========================================= */
+
+#add-news-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+#add-news-form label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 8px;
+}
+
+#add-news-form input,
+#add-news-form select,
+#add-news-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cccccc;
+    background: var(--white);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    outline: none;
+    border-radius: 2px;
+}
+
+#add-news-form input:focus,
+#add-news-form select:focus,
+#add-news-form textarea:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 2px rgba(215, 25, 32, 0.08);
+}
+
+#add-news-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#add-news-form textarea#content {
+    min-height: 220px;
+}
+
+#add-news-form button {
+    width: fit-content;
+    margin-top: 15px;
+    padding: 12px 25px;
+}
+
+#admin-message {
+    margin-top: 18px;
+    font-weight: 700;
+    color: var(--red);
+}
+
+/* Admin published news */
+
+#admin-news-grid {
+    margin-top: 10px;
+}
+
+.delete-news-button {
+    display: inline-block;
+    margin: 10px 0 0 18px;
+    padding: 11px 20px;
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.delete-news-button:hover {
+    background: var(--red);
+}
+/* Admin action buttons */
+
+#admin-news-grid .read-more {
+    margin-left: 18px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#admin-news-grid .delete-news-button {
+    margin: 10px 0 0 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#admin-news-grid .read-more,
+#admin-news-grid .delete-news-button {
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+#admin-news-grid .read-more:hover {
+    background: var(--dark-red);
+}
+
+#admin-news-grid .delete-news-button:hover {
+    background: var(--red);
+}
+/* =========================================
+   RESPONSIVE ADMIN PANEL
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    #add-news-form {
+        max-width: 100%;
+    }
+
+    #add-news-form input,
+    #add-news-form select,
+    #add-news-form textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #admin-news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #admin-news-grid .news-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #admin-news-grid .read-more,
+    #admin-news-grid .delete-news-button {
+        margin-left: 0;
+        margin-right: 6px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #add-news-form button {
+        width: 100%;
+    }
+
+    #admin-news-grid .read-more,
+    #admin-news-grid .delete-news-button {
+        width: 100%;
+        margin-right: 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}
+/* =========================================
+   ADMIN LOGOUT BUTTON
+   ========================================= */
+
+#logout-button {
+    padding: 14px 17px;
+    font-size: 14px;
+    font-weight: 700;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#logout-button:hover {
+    background: var(--dark-red);
+}
+
+@media (max-width: 768px) {
+
+    #logout-button {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+}
+/* =========================================
+   ADMIN LOGIN
+   ========================================= */
+
+.admin-login {
+    max-width: 520px;
+    margin: 40px auto;
+}
+
+.admin-login h2 {
+    margin-bottom: 28px;
+}
+
+#admin-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#admin-login-form label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 8px;
+}
+
+#admin-login-form input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #cccccc;
+    background: var(--white);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    outline: none;
+    border-radius: 2px;
+}
+
+#admin-login-form input:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 2px rgba(215, 25, 32, 0.08);
+}
+
+#admin-login-form button {
+    width: 100%;
+    padding: 13px 20px;
+    margin-top: 15px;
+    font-size: 15px;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+#admin-login-form button:hover {
+    background: var(--dark-red);
+}
+
+#login-message {
+    margin-top: 18px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--red);
+}
+
+/* =========================================
+   MOBILE ADMIN LOGIN
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .admin-login {
+        width: 100%;
+        margin: 20px auto;
+        padding: 22px;
+    }
+
+    .admin-login h2 {
+        font-size: 27px;
+    }
+
+    #admin-login-form input {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    #admin-login-form button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .admin-login {
+        padding: 18px;
+    }
+
+    .admin-login h2 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,21 @@
+DOINIK TALASH TV - FIXED PROJECT
+
+1. Open this folder in VS Code.
+2. In Terminal run: npm install
+3. Start the server: npm start
+4. Open: http://localhost:3000
+
+Database expected by server.js:
+Database: doinik_talash_tv
+Table: news
+Expected columns used by the website:
+id, title, category, description, image, content, created_at
+
+API checks:
+http://localhost:3000/api/health
+http://localhost:3000/api/news
+http://localhost:3000/api/news/1
+http://localhost:3000/api/news/search?q=sports
+http://localhost:3000/api/news/category/sports
+
+The server returns a clear 503 response instead of leaving the browser loading forever when a database query fails or times out.
