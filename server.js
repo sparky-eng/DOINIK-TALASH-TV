@@ -6,10 +6,14 @@ const app = express();
 const PORT = 3000;
 
 const pool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "Shuvo.8340",
-    database: "doinik_talash_tv",
+    host: process.env.DB_HOST || "localhost",
+    port: Number(process.env.DB_PORT) || 3306,
+    user: process.env.DB_USER || "root",
+    password: process.env.DB_PASSWORD || "Shuvo.8340",
+    database: process.env.DB_NAME || "doinik_talash_tv",
+    ssl: process.env.DB_HOST
+        ? { rejectUnauthorized: false }
+        : undefined,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
@@ -32,10 +36,18 @@ app.use(
 async function testDatabase() {
     try {
         const [rows] = await pool.query("SELECT 1 AS ok");
+
         console.log("MySQL connected successfully!");
         console.log("Database test:", rows);
+
     } catch (err) {
-        console.error("MySQL connection failed:", err.message);
+        console.error("=================================");
+        console.error("MySQL connection failed!");
+        console.error("Error message:", err.message);
+        console.error("Error code:", err.code);
+        console.error("Error errno:", err.errno);
+        console.error("Error sqlState:", err.sqlState);
+        console.error("=================================");
     }
 }
 app.post("/api/admin/login", (req, res) => {
