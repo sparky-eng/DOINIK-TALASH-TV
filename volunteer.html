@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Volunteer Panel | DOINIK TALASH TV</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>DOINIK TALASH TV</h1>
+        <p>Volunteer Panel</p>
+    </header>
+
+    <nav id="volunteer-nav">
+        <a href="index.html">Home</a>
+        <a href="volunteer.html" class="active">Volunteer Panel</a>
+        <button id="volunteer-logout-button" type="button">
+            Logout
+        </button>
+    </nav>
+
+    <main>
+
+        <section class="article-page">
+
+            <h2>Volunteer Panel</h2>
+
+            <p>
+                You can read published news and add new news articles.
+            </p>
+
+        </section>
+
+        <section class="article-page">
+
+            <h2>Add News Article</h2>
+
+            <form id="volunteer-news-form">
+
+                <label for="volunteer-title">
+                    News Title
+                </label>
+
+                <input
+                    type="text"
+                    id="volunteer-title"
+                    name="title"
+                    placeholder="Enter news title"
+                    required
+                >
+
+                <label for="volunteer-category">
+                    Category
+                </label>
+
+                <select
+                    id="volunteer-category"
+                    name="category"
+                    required
+                >
+                    <option value="">Select category</option>
+                    <option value="national">National</option>
+                    <option value="politics">Politics</option>
+                    <option value="world">World</option>
+                    <option value="sports">Sports</option>
+                    <option value="business">Business</option>
+                    <option value="technology">Technology</option>
+                    <option value="entertainment">Entertainment</option>
+                </select>
+
+                <label for="volunteer-description">
+                    Description
+                </label>
+
+                <textarea
+                    id="volunteer-description"
+                    name="description"
+                    rows="4"
+                    placeholder="Enter short news description"
+                    required
+                ></textarea>
+
+                <label for="volunteer-image-file">
+                    News Image
+                </label>
+
+                <input
+                    type="file"
+                    id="volunteer-image-file"
+                    accept="image/*"
+                    required
+                >
+
+                <p id="volunteer-image-name">
+                    No image selected
+                </p>
+
+                <label for="volunteer-content">
+                    News Content
+                </label>
+
+                <textarea
+                    id="volunteer-content"
+                    name="content"
+                    rows="10"
+                    placeholder="Write the full news article..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Publish News
+                </button>
+
+            </form>
+
+            <p id="volunteer-message"></p>
+
+        </section>
+
+        <section class="article-page">
+
+            <h2>Published News</h2>
+
+            <div
+                class="news-grid"
+                id="volunteer-news-grid"
+            >
+                <p>Loading published news...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; 2026 DOINIK TALASH TV. All rights reserved.
+        </p>
+    </footer>
+
+    <script src="volunteer.js"></script>
+
+</body>
+
+</html>

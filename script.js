@@ -14,22 +14,73 @@ function createNewsCard(item) {
     const article = document.createElement("article");
     article.className = "news-card";
 
-    const image = escapeHtml(item.image || "");
+    const image = escapeHtml(
+        item.image ||
+        "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80"
+    );
+
     const title = escapeHtml(item.title || "Untitled news");
     const description = escapeHtml(item.description || "");
-    const categoryName = escapeHtml(String(item.category || "news").toUpperCase());
+   const categoryLabels = {
+    national: "জাতীয়",
+    politics: "রাজনীতি",
+    world: "বিশ্ব",
+    sports: "খেলা",
+    business: "ব্যবসা",
+    technology: "প্রযুক্তি",
+    entertainment: "বিনোদন",
+    news: "সংবাদ"
+};
+
+const categoryName =
+    categoryLabels[String(item.category || "news").toLowerCase()] || "সংবাদ";
+
     const id = Number(item.id);
+
+    let publishedDate = "Latest";
+
+    if (item.created_at) {
+        const date = new Date(item.created_at);
+
+        if (!Number.isNaN(date.getTime())) {
+            publishedDate = date.toLocaleDateString("en-BD", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            });
+        }
+    }
 
     article.innerHTML = `
         <div class="card-image">
-            <img src="${image}" alt="${title}" loading="lazy">
+            <img
+                src="${image}"
+                alt="${title}"
+                loading="lazy"
+                onerror="this.src='https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80'"
+            >
         </div>
-        <span class="category">${categoryName}</span>
-        <h3>
-            <a href="article.html?id=${id}">${title}</a>
-        </h3>
-        <p>${description}</p>
-        <a href="article.html?id=${id}" class="read-more">Read More</a>
+
+        <div class="card-body">
+
+            <div class="card-meta">
+                <span class="category">${categoryName}</span>
+                <time>${escapeHtml(publishedDate)}</time>
+            </div>
+
+            <h3>
+                <a href="article.html?id=${id}">
+                    ${title}
+                </a>
+            </h3>
+
+            <p>${description}</p>
+
+            <a href="article.html?id=${id}" class="read-more">
+                বিস্তারিত পড়ুন →
+            </a>
+
+        </div>
     `;
 
     return article;
@@ -124,9 +175,22 @@ async function loadCategoryNews() {
     const title = document.getElementById("category-title");
     if (!grid || !category) return;
 
-    const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
-    if (title) title.textContent = `${formattedCategory} News`;
+  const categoryLabels = {
+    national: "জাতীয়",
+    politics: "রাজনীতি",
+    world: "বিশ্ব",
+    sports: "খেলা",
+    business: "ব্যবসা",
+    technology: "প্রযুক্তি",
+    entertainment: "বিনোদন",
+    news: "সংবাদ"
+};
 
+const formattedCategory = categoryLabels[category] || "সংবাদ";
+
+if (title) {
+    title.textContent = `${formattedCategory} সংবাদ`;
+}
     grid.innerHTML = "<p>Loading category news...</p>";
 
     try {

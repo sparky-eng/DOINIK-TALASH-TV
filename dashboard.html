@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | DOINIK TALASH TV</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>DOINIK TALASH TV</h1>
+        <p>Admin Dashboard</p>
+    </header>
+
+    <nav id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="admin.html">Admin</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <button id="logout-button" type="button">Logout</button>
+    </nav>
+
+    <main>
+
+        <section class="dashboard-overview">
+
+            <h2>Dashboard Overview</h2>
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+                    <h3>Total News</h3>
+                    <p id="total-news-count">Loading...</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Categories</h3>
+                    <p id="category-count">Loading...</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Latest News</h3>
+                    <p id="latest-news-title">Loading...</p>
+                </div>
+
+            </div>
+
+        </section>
+<section class="dashboard-quick-actions">
+
+    <h2>Quick Actions</h2>
+
+    <div class="quick-action-buttons">
+
+        <a href="admin.html" class="quick-action-button">
+            Add News
+        </a>
+
+        <a
+            href="admin.html#published-news"
+            class="quick-action-button"
+        >
+            Manage News
+        </a>
+
+    </div>
+
+</section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DOINIK TALASH TV. All rights reserved.</p>
+    </footer>
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

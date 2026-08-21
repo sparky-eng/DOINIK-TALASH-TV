@@ -826,3 +826,434 @@ footer p {
         font-size: 24px;
     }
 }
+
+/* =========================================
+   ARTICLE ACTION BUTTONS
+   ========================================= */
+
+.article-actions {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.article-action-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.article-action-button:hover {
+    background: var(--dark-red);
+}
+
+@media (max-width: 480px) {
+
+    .article-actions {
+        flex-direction: column;
+    }
+
+    .article-action-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* =========================================
+   PRINT
+   ========================================= */
+
+@media print {
+
+    header,
+    nav,
+    footer,
+    .article-actions {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    main {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .article-page {
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .article-image {
+        max-height: 500px;
+    }
+
+    .article-content {
+        max-width: none;
+    }
+}
+.site-logo {
+    width: 350px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px;
+}
+/* =========================================
+   ADMIN DASHBOARD OVERVIEW
+   MOBILE FIRST
+   ========================================= */
+
+.dashboard-overview {
+    margin-bottom: 24px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.dashboard-card {
+    background: var(--white);
+    padding: 20px;
+    border-left: 4px solid var(--red);
+    box-shadow: var(--shadow);
+}
+
+.dashboard-card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: var(--muted);
+}
+
+.dashboard-card p {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+#latest-news-title {
+    font-size: 16px;
+    font-weight: 550;
+}
+
+/* Tablet and desktop */
+
+@media (min-width: 768px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-card {
+        min-height: 130px;
+    }
+}
+/* =========================================
+   DASHBOARD QUICK ACTIONS
+   MOBILE FIRST
+   ========================================= */
+
+.dashboard-quick-actions {
+    margin-top: 28px;
+}
+
+.quick-action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.quick-action-button {
+    display: block;
+    width: 100%;
+    padding: 14px 18px;
+    background: var(--red);
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: background 0.2s ease;
+}
+
+.quick-action-button:hover {
+    background: var(--dark-red);
+}
+
+/* Tablet and desktop */
+
+@media (min-width: 768px) {
+
+    .quick-action-buttons {
+        flex-direction: row;
+    }
+
+    .quick-action-button {
+        width: auto;
+        min-width: 150px;
+    }
+}
+/* =========================================
+   VOLUNTEER PANEL
+   MOBILE FIRST
+   ========================================= */
+
+#volunteer-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#volunteer-nav a,
+#volunteer-nav button {
+    font: inherit;
+}
+
+#volunteer-news-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#volunteer-news-form label {
+    display: block;
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+#volunteer-news-form input,
+#volunteer-news-form select,
+#volunteer-news-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#volunteer-news-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+#volunteer-news-form input[type="file"] {
+    padding: 8px;
+}
+
+#volunteer-news-form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 3px;
+    background: #d71920;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#volunteer-news-form button:hover {
+    background: #b9141a;
+}
+
+#volunteer-message {
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+#volunteer-image-name {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Published news */
+
+#volunteer-news-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* Tablet / desktop */
+
+@media (min-width: 768px) {
+
+    #volunteer-news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* Large desktop */
+
+@media (min-width: 1100px) {
+
+    #volunteer-news-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+/* Volunteer Logout Button */
+
+#volunteer-logout-button {
+    background: #111111;
+    color: #ffffff;
+    border: none;
+    padding: 14px 18px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#volunteer-logout-button:hover {
+    background: #d71920;
+}
+/* =========================================
+   VOLUNTEER LOGIN
+   MOBILE FIRST
+   ========================================= */
+
+.volunteer-login {
+    max-width: 520px;
+    margin: 30px auto;
+}
+
+#volunteer-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#volunteer-login-form label {
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+#volunteer-login-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+}
+
+#volunteer-login-form input:focus {
+    outline: none;
+    border-color: #d71920;
+}
+
+#volunteer-login-form button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    background: #d71920;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#volunteer-login-form button:hover {
+    background: #b9141a;
+}
+
+#volunteer-login-message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .volunteer-login {
+        max-width: 520px;
+    }
+}
+/* =========================================
+   THREE-DOT MORE MENU
+   ========================================= */
+
+.nav-more {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    z-index: 1000;
+}
+
+.nav-more summary {
+    list-style: none;
+    cursor: pointer;
+    color: #ffffff;
+    background: #111111;
+    padding: 14px 18px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    user-select: none;
+}
+
+.nav-more summary::-webkit-details-marker {
+    display: none;
+}
+
+.nav-more summary:hover {
+    background: #d71920;
+}
+
+.nav-more[open] summary {
+    background: #d71920;
+}
+
+.nav-more-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    min-width: 180px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+.nav-more-menu a {
+    display: block;
+    padding: 14px 16px;
+    color: #222222;
+    background: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-more-menu a:hover {
+    color: #ffffff;
+    background: #d71920;
+}
+#main-nav {
+    position: relative;
+}

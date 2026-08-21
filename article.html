@@ -29,10 +29,20 @@
             <h2 id="article-title">Loading article...</h2>
             <p class="article-meta" id="article-meta"></p>
             <img id="article-image" src="" alt="News" class="article-image">
-            <div class="article-content">
-                <p id="article-description">Loading article description...</p>
-                <p id="article-content-text">Loading article content...</p>
-            </div>
+           <div class="article-actions">
+    <a id="download-pdf-button" class="article-action-button" href="#">
+        📄 Download PDF
+    </a>
+
+    <button id="print-button" class="article-action-button" type="button">
+        🖨 Print
+    </button>
+</div>
+
+<div class="article-content">
+    <p id="article-description">Loading article description...</p>
+    <p id="article-content-text">Loading article content...</p>
+</div>
         </article>
     </main>
 
@@ -48,6 +58,8 @@
         const contentEl = document.getElementById("article-content-text");
         const imageEl = document.getElementById("article-image");
         const metaEl = document.getElementById("article-meta");
+const downloadPdfButton = document.getElementById("download-pdf-button");
+const printButton = document.getElementById("print-button");
 
         function showArticleError(message) {
             titleEl.textContent = "Article Not Found";
@@ -88,6 +100,14 @@
                     }
 
                     document.title = `${article.title || "Article"} | DOINIK TALASH TV`;
+                    if (downloadPdfButton) {
+    downloadPdfButton.href = `/api/news/${article.id}/pdf`;
+}
+if (printButton) {
+    printButton.addEventListener("click", () => {
+        window.print();
+    });
+}
                 })
                 .catch(error => {
                     console.error("Failed to load article:", error);
