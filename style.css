@@ -397,15 +397,51 @@ button:hover {
     background: #eeeeee;
 }
 
+/* =========================================
+   ARTICLE CONTENT
+   ========================================= */
+
 .article-content {
-    max-width: 900px;
-    margin: 30px auto 0;
+    width: 100%;
+    max-width: none;
+    margin: 30px 0 0;
+    padding: 0;
     font-size: 17px;
     line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-word;
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .article-content p {
-    margin-bottom: 20px;
+    width: 100%;
+    margin: 0 0 20px;
+    text-align: justify;
+}
+
+
+/* =========================================
+   MOBILE ARTICLE CONTENT
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .article-content {
+        width: 100%;
+        max-width: none;
+        margin: 24px 0 0;
+        padding: 0;
+        font-size: 17px;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+    .article-content p {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
 }
 
 /* =========================================
@@ -905,10 +941,11 @@ footer p {
     }
 }
 .site-logo {
-    width: 350px;
-    height: auto;
+    width: 90px;
+    height: 50px;
     display: block;
-    margin: 0 auto 15px;
+    margin: 0 auto 2px;
+    transform: scaleX(1.50);
 }
 /* =========================================
    ADMIN DASHBOARD OVERVIEW
@@ -1198,14 +1235,17 @@ footer p {
 
 .nav-more {
     position: absolute;
-    top: 0;
+    top: 42px;
     right: 0;
-    height: 100%;
+    height: 38px;
     display: flex;
     align-items: stretch;
     z-index: 1000;
 }
-
+#main-nav {
+    position: relative;
+    border-bottom: 4px solid var(--red);
+}
 .nav-more summary {
     list-style: none;
     cursor: pointer;
@@ -1256,4 +1296,130 @@ footer p {
 }
 #main-nav {
     position: relative;
+}
+/* =========================================
+   BENGALI WEBSITE FONT
+   ========================================= */
+
+body {
+    font-family: "Noto Sans Bengali", "SolaimanLipi", Arial, sans-serif;
+}
+
+.featured h2,
+.featured-content,
+.featured-content h3,
+.featured-content p,
+.latest-news h2,
+.news-card {
+    font-family: "Noto Sans Bengali", "SolaimanLipi", Arial, sans-serif;
+}
+/* =========================================
+   HEADER E-PAPER BUTTON
+   ========================================= */
+
+.header-main {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.header-brand {
+    text-align: center;
+}
+
+.header-brand .site-logo {
+    display: block;
+    width: 350px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 5px;
+}
+
+.header-brand p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+
+/* E-PAPER BUTTON */
+
+.epaper-header-button {
+    position: absolute;
+
+    top: 85px;
+    right: 40px;
+
+    transform: translateX(50%);
+
+    width: 90px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    background: #777777;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    border-radius: 9px 4px 9px 4px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.epaper-header-button:hover {
+    background: #666666;
+    transform: translateY(-1px);
+}
+
+.epaper-icon {
+    width: 21px;
+    height: 21px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   MOBILE HEADER
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    header {
+        padding: 18px 12px 20px;
+    }
+
+    .header-main {
+        min-height: 118px;
+    }
+
+    .header-brand .site-logo {
+        width: 225px;
+        max-width: 70%;
+        margin-bottom: 4px;
+    }
+
+    .header-brand p {
+        font-size: 12px;
+    }
+
+   
+    .epaper-icon {
+        width: 15px;
+        height: 15px;
+    }
+
+    .search-box {
+        margin-top: 10px;
+    }
 }

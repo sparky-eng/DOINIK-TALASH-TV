@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Category | DOINIK TALASH TV</title>
+    <title>বিভাগ | দৈনিক তালাশ টিভি</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,11 +13,22 @@
 <body>
 
     <header>
-        <h1>DOINIK TALASH TV</h1>
-        <p>Your trusted source for the latest news</p>
+        <img src="logo.jpg" alt="দৈনিক তালাশ টিভি" class="site-logo">
+        <p>সত্যের সন্ধানে, মানুষের পাশে</p>
+
+        <form class="search-box" action="search.html" method="GET">
+            <input
+                type="text"
+                id="search-input"
+                name="query"
+                placeholder="সংবাদ খুঁজুন..."
+            >
+            <button type="submit" id="search-button">খুঁজুন</button>
+        </form>
     </header>
 
     <nav id="main-nav">
+
         <a href="index.html">হোম</a>
         <a href="category.html?category=national">জাতীয়</a>
         <a href="category.html?category=politics">রাজনীতি</a>
@@ -25,16 +37,25 @@
         <a href="category.html?category=business">ব্যবসা</a>
         <a href="category.html?category=technology">প্রযুক্তি</a>
         <a href="category.html?category=entertainment">বিনোদন</a>
+
+        <details class="nav-more">
+            <summary aria-label="আরও">⋮</summary>
+
+            <div class="nav-more-menu">
+                <a href="volunteer-login.html">স্বেচ্ছাসেবক লগইন</a>
+            </div>
+        </details>
+
     </nav>
 
     <main>
 
         <section class="category-page">
 
-            <h2 id="category-title">Latest News</h2>
+            <h2 id="category-title">সর্বশেষ সংবাদ</h2>
 
             <div class="news-grid" id="category-news-grid">
-                <p>Loading category news...</p>
+                <p>বিভাগের সংবাদ লোড হচ্ছে...</p>
             </div>
 
         </section>
@@ -42,10 +63,11 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 DOINIK TALASH TV. All rights reserved.</p>
+        <p>&copy; ২০২৬ দৈনিক তালাশ টিভি। সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
 
     <script src="script.js"></script>
 
 </body>
+
 </html>

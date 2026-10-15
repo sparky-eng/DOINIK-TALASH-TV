@@ -1,120 +1,788 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article | DOINIK TALASH TV</title>
+
+    <title>নিবন্ধ | দৈনিক তালাশ টিভি</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           ARTICLE META
+           ========================================= */
+
+        .article-meta {
+            margin: 14px 0 20px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 18px;
+            line-height: 1.35;
+        }
+
+        .article-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 25px;
+            color: #222;
+        }
+
+        .article-meta-icon {
+            width: 22px;
+            min-width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .article-meta-text {
+            flex: 1;
+        }
+
+        /* =========================================
+           REPORTER ICON
+           ========================================= */
+
+        .reporter-icon {
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            background: #111;
+            color: #fff;
+            font-size: 13px;
+            line-height: 1;
+        }
+
+        .reporter-icon::before {
+            content: "●";
+            transform: translateY(-1px);
+        }
+
+        /* =========================================
+           PUBLISHED ICON
+           GREEN UP ARROW
+           ========================================= */
+
+        .published-icon {
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+
+        .published-icon::before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 9px solid #35b779;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .published-icon::after {
+            content: "";
+            width: 13px;
+            height: 9px;
+            background: #35b779;
+            position: absolute;
+            bottom: 1px;
+            left: 3.5px;
+        }
+
+        /* =========================================
+           UPDATED ICON
+           RED DOWN ARROW
+           ========================================= */
+
+        .updated-icon {
+            position: relative;
+            width: 20px;
+            height: 20px;
+        }
+
+        .updated-icon::before {
+            content: "";
+            width: 13px;
+            height: 9px;
+            background: #ef6b68;
+            position: absolute;
+            top: 1px;
+            left: 3.5px;
+        }
+
+        .updated-icon::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 9px solid #ef6b68;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        /* =========================================
+           ONLINE EDITION ICON
+           ========================================= */
+
+        .edition-icon {
+            width: 20px;
+            height: 20px;
+            background: #111;
+            color: #fff;
+            border-radius: 2px;
+            font-size: 13px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .edition-icon::before {
+            content: "✎";
+            position: absolute;
+            top: 1px;
+            left: 4px;
+            color: #fff;
+            line-height: 18px;
+        }
+
+        /* =========================================
+           HIDDEN UPDATE ROW
+           ========================================= */
+
+        .article-meta-item.hidden {
+            display: none;
+        }
+
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media (max-width: 768px) {
+
+            .article-meta {
+                font-size: 16px;
+                gap: 4px;
+                margin-top: 12px;
+                margin-bottom: 18px;
+            }
+
+            .article-meta-item {
+                gap: 7px;
+                min-height: 23px;
+            }
+
+            .article-meta-icon {
+                width: 20px;
+                min-width: 20px;
+                height: 20px;
+            }
+
+            .reporter-icon {
+                width: 19px;
+                height: 19px;
+                font-size: 12px;
+            }
+
+            .published-icon,
+            .updated-icon {
+                width: 19px;
+                height: 19px;
+            }
+
+            .edition-icon {
+                width: 19px;
+                height: 19px;
+            }
+        }
+    </style>
 </head>
+
+
 <body>
+
     <header>
-        <h1>DOINIK TALASH TV</h1>
-        <p>Your trusted source for the latest news</p>
+
+        <img
+            src="logo.jpg"
+            alt="দৈনিক তালাশ টিভি"
+            class="site-logo"
+        >
+
+        <p>সত্যের সন্ধানে, মানুষের পাশে</p>
+
+        <form
+            class="search-box"
+            action="search.html"
+            method="GET"
+        >
+
+            <input
+                type="text"
+                id="search-input"
+                name="query"
+                placeholder="সংবাদ খুঁজুন..."
+            >
+
+            <button
+                type="submit"
+                id="search-button"
+            >
+                খুঁজুন
+            </button>
+
+        </form>
+
     </header>
 
-<nav id="main-nav">
-        <a href="index.html">Home</a>
-        <a href="category.html?category=national">National</a>
-        <a href="category.html?category=politics">Politics</a>
-        <a href="category.html?category=world">World</a>
-        <a href="category.html?category=sports">Sports</a>
-        <a href="category.html?category=business">Business</a>
-        <a href="category.html?category=technology">Technology</a>
-        <a href="category.html?category=entertainment">Entertainment</a>
+
+    <nav id="main-nav">
+
+        <a href="index.html">হোম</a>
+
+        <a href="category.html?category=national">
+            জাতীয়
+        </a>
+
+        <a href="category.html?category=politics">
+            রাজনীতি
+        </a>
+
+        <a href="category.html?category=world">
+            বিশ্ব
+        </a>
+
+        <a href="category.html?category=sports">
+            খেলা
+        </a>
+
+        <a href="category.html?category=business">
+            ব্যবসা
+        </a>
+
+        <a href="category.html?category=technology">
+            প্রযুক্তি
+        </a>
+
+        <a href="category.html?category=entertainment">
+            বিনোদন
+        </a>
+
+
+        <details class="nav-more">
+
+            <summary aria-label="আরও">
+                ⋮
+            </summary>
+
+            <div class="nav-more-menu">
+
+                <a href="volunteer-login.html">
+                    স্বেচ্ছাসেবক লগইন
+                </a>
+
+            </div>
+
+        </details>
+
     </nav>
 
+
     <main>
+
         <article class="article-page">
-            <span class="category" id="article-category">NEWS</span>
-            <h2 id="article-title">Loading article...</h2>
-            <p class="article-meta" id="article-meta"></p>
-            <img id="article-image" src="" alt="News" class="article-image">
-           <div class="article-actions">
-    <a id="download-pdf-button" class="article-action-button" href="#">
-        📄 Download PDF
-    </a>
 
-    <button id="print-button" class="article-action-button" type="button">
-        🖨 Print
-    </button>
+            <span
+                class="category"
+                id="article-category"
+            >
+                সংবাদ
+            </span>
+
+
+            <h2 id="article-title">
+                নিবন্ধ লোড হচ্ছে...
+            </h2>
+
+
+            <!-- =========================================
+                 ARTICLE INFORMATION
+                 ========================================= -->
+
+            <div
+                class="article-meta"
+                id="article-meta"
+            >
+
+                <!-- Reporter -->
+
+                <div class="article-meta-item">
+
+                    <span
+                        class="article-meta-icon reporter-icon"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span class="article-meta-text">
+                        বিশেষ প্রতিনিধি
+                    </span>
+
+                </div>
+
+
+                <!-- Published -->
+
+                <div class="article-meta-item">
+
+                    <span
+                        class="article-meta-icon published-icon"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span
+                        class="article-meta-text"
+                        id="article-published"
+                    >
+                        প্রকাশ : লোড হচ্ছে...
+                    </span>
+
+                </div>
+
+
+                <!-- Updated -->
+
+                <div
+                    class="article-meta-item"
+                    id="article-updated-row"
+                >
+
+                    <span
+                        class="article-meta-icon updated-icon"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span
+                        class="article-meta-text"
+                        id="article-updated"
+                    >
+                        আপডেট : লোড হচ্ছে...
+                    </span>
+
+                </div>
+
+
+                <!-- Online edition -->
+
+                <div class="article-meta-item">
+
+                    <span
+                        class="article-meta-icon edition-icon"
+                        aria-hidden="true"
+                    ></span>
+
+                    <span class="article-meta-text">
+                        অনলাইন সংস্করণ
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <img
+                id="article-image"
+                src=""
+                alt="সংবাদ"
+                class="article-image"
+            >
+
+
+            <div class="article-actions">
+
+                <button
+                    id="photocard-button"
+                    class="article-action-button"
+                    type="button"
+                >
+                    🖼 ফটো কার্ড
+                </button>
+
+            </div>
+
+
+            <div class="article-content">
+
+    <div id="article-description">
+        নিবন্ধের বিবরণ লোড হচ্ছে...
+    </div>
+
+    <div id="article-content-text">
+        নিবন্ধের বিষয়বস্তু লোড হচ্ছে...
+    </div>
+
 </div>
 
-<div class="article-content">
-    <p id="article-description">Loading article description...</p>
-    <p id="article-content-text">Loading article content...</p>
-</div>
         </article>
+
     </main>
 
+
     <footer>
-        <p>&copy; 2026 DOINIK TALASH TV. All rights reserved.</p>
+
+        <p>
+            &copy; ২০২৬ দৈনিক তালাশ টিভি। সর্বস্বত্ব সংরক্ষিত।
+        </p>
+
     </footer>
 
+
     <script>
-        const articleId = new URLSearchParams(window.location.search).get("id");
-        const titleEl = document.getElementById("article-title");
-        const categoryEl = document.getElementById("article-category");
-        const descriptionEl = document.getElementById("article-description");
-        const contentEl = document.getElementById("article-content-text");
-        const imageEl = document.getElementById("article-image");
-        const metaEl = document.getElementById("article-meta");
-const downloadPdfButton = document.getElementById("download-pdf-button");
-const printButton = document.getElementById("print-button");
+
+        const articleId =
+            new URLSearchParams(window.location.search).get("id");
+
+
+        const titleEl =
+            document.getElementById("article-title");
+
+
+        const categoryEl =
+            document.getElementById("article-category");
+
+
+        const descriptionEl =
+            document.getElementById("article-description");
+
+
+        const contentEl =
+            document.getElementById("article-content-text");
+
+
+        const imageEl =
+            document.getElementById("article-image");
+
+
+        const publishedEl =
+            document.getElementById("article-published");
+
+
+        const updatedEl =
+            document.getElementById("article-updated");
+
+
+        const updatedRow =
+            document.getElementById("article-updated-row");
+
+
+        const photocardButton =
+            document.getElementById("photocard-button");
+
+
+        /* =========================================
+           BANGLA DATE/TIME FORMAT
+           ========================================= */
+
+        function formatBanglaDateTime(value) {
+
+            if (!value) {
+                return "";
+            }
+
+            const date = new Date(value);
+
+            if (isNaN(date.getTime())) {
+                return String(value);
+            }
+
+            return date.toLocaleString("bn-BD", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true
+            });
+        }
+
+
+        /* =========================================
+           UPDATE TIMESTAMP
+           ========================================= */
+
+        function getUpdatedDate(article) {
+
+            return (
+                article.updated_at ||
+                article.updatedAt ||
+                article.modified_at ||
+                article.modifiedAt ||
+                article.update_at ||
+                article.updateAt ||
+                null
+            );
+
+        }
+
+
+        /* =========================================
+           ARTICLE ERROR
+           ========================================= */
 
         function showArticleError(message) {
-            titleEl.textContent = "Article Not Found";
-            descriptionEl.textContent = message;
-            contentEl.textContent = "Please return to the homepage and select another article.";
+
+            titleEl.textContent =
+                "নিবন্ধ পাওয়া যায়নি";
+
+            descriptionEl.textContent =
+                message;
+
+            contentEl.textContent =
+                "হোমপেজে ফিরে গিয়ে অন্য একটি সংবাদ নির্বাচন করুন।";
+
             imageEl.removeAttribute("src");
+
+            publishedEl.textContent =
+                "প্রকাশ : তথ্য পাওয়া যায়নি";
+
+            updatedRow.classList.add("hidden");
+
         }
 
-        if (!articleId || !/^\d+$/.test(articleId)) {
-            showArticleError("No valid article ID was provided.");
-        } else {
-            const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 8000);
 
-            fetch(`/api/news/${articleId}`, { signal: controller.signal })
+        /* =========================================
+           VALIDATE ARTICLE ID
+           ========================================= */
+
+        if (
+            !articleId ||
+            !/^\d+$/.test(articleId)
+        ) {
+
+            showArticleError(
+                "কোনো বৈধ নিবন্ধ আইডি প্রদান করা হয়নি।"
+            );
+
+        } else {
+
+            const controller =
+                new AbortController();
+
+
+            const timeout =
+                setTimeout(
+                    () => controller.abort(),
+                    8000
+                );
+
+
+            fetch(
+                `/api/news/${articleId}`,
+                {
+                    signal: controller.signal
+                }
+            )
+
                 .then(response => {
-                    if (!response.ok) throw new Error(`Article API returned ${response.status}`);
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `Article API returned ${response.status}`
+                        );
+
+                    }
+
                     return response.json();
+
                 })
+
+
                 .then(article => {
-                    categoryEl.textContent = String(article.category || "NEWS").toUpperCase();
-                    titleEl.textContent = article.title || "Untitled article";
-                    descriptionEl.textContent = article.description || "";
-                    contentEl.textContent = article.content || "";
+
+                    /* =========================================
+                       CATEGORY
+                       ========================================= */
+
+                    const categoryNames = {
+
+                        national: "জাতীয়",
+
+                        politics: "রাজনীতি",
+
+                        world: "বিশ্ব",
+
+                        sports: "খেলা",
+
+                        business: "ব্যবসা",
+
+                        technology: "প্রযুক্তি",
+
+                        entertainment: "বিনোদন"
+
+                    };
+
+
+                    const categoryKey =
+                        String(article.category || "")
+                            .trim()
+                            .toLowerCase();
+
+
+                    categoryEl.textContent =
+                        categoryNames[categoryKey] ||
+                        "সংবাদ";
+
+
+                    /* =========================================
+                       ARTICLE CONTENT
+                       ========================================= */
+
+                    titleEl.textContent =
+                        article.title ||
+                        "শিরোনামহীন সংবাদ";
+
+
+                   descriptionEl.textContent =
+    article.description || "";
+
+contentEl.innerHTML =
+    String(article.content || "")
+        .split(/\r?\n\s*\r?\n/)
+        .filter(paragraph => paragraph.trim())
+        .map(paragraph => `<p>${paragraph.trim()}</p>`)
+        .join("");
+
+
+                    /* =========================================
+                       IMAGE
+                       ========================================= */
 
                     if (article.image) {
-                        imageEl.src = article.image;
-                        imageEl.alt = article.title || "News";
+
+                        imageEl.src =
+                            article.image;
+
+                        imageEl.alt =
+                            article.title ||
+                            "সংবাদ";
+
                     } else {
+
                         imageEl.removeAttribute("src");
+
                     }
+
+
+                    /* =========================================
+                       PUBLICATION TIME
+                       ========================================= */
 
                     if (article.created_at) {
-                        const date = new Date(article.created_at);
-                        metaEl.textContent = `Published: ${isNaN(date) ? article.created_at : date.toLocaleString()} | By DOINIK TALASH TV`;
+
+                        publishedEl.textContent =
+                            `প্রকাশ : ${formatBanglaDateTime(
+                                article.created_at
+                            )}`;
+
                     } else {
-                        metaEl.textContent = "By DOINIK TALASH TV";
+
+                        publishedEl.textContent =
+                            "প্রকাশ : তথ্য পাওয়া যায়নি";
+
                     }
 
-                    document.title = `${article.title || "Article"} | DOINIK TALASH TV`;
-                    if (downloadPdfButton) {
-    downloadPdfButton.href = `/api/news/${article.id}/pdf`;
-}
-if (printButton) {
-    printButton.addEventListener("click", () => {
-        window.print();
-    });
-}
+
+                    /* =========================================
+                       UPDATE TIME
+                       ========================================= */
+
+                    const updatedDate =
+                        getUpdatedDate(article);
+
+
+                    if (updatedDate) {
+
+                        updatedEl.textContent =
+                            `আপডেট : ${formatBanglaDateTime(
+                                updatedDate
+                            )}`;
+
+                        updatedRow.classList.remove("hidden");
+
+                    } else {
+
+                        updatedRow.classList.add("hidden");
+
+                    }
+
+
+                    /* =========================================
+                       PAGE TITLE
+                       ========================================= */
+
+                    document.title =
+                        `${article.title || "নিবন্ধ"} | দৈনিক তালাশ টিভি`;
+
+
+                    /* =========================================
+                       PHOTO CARD
+                       ========================================= */
+
+                    if (photocardButton) {
+
+                        photocardButton.addEventListener(
+                            "click",
+                            () => {
+
+                                window.location.href =
+                                    `/api/news/${article.id}/jpg`;
+
+                            }
+                        );
+
+                    }
+
                 })
+
+
                 .catch(error => {
-                    console.error("Failed to load article:", error);
-                    showArticleError(error.name === "AbortError" ? "The article server took too long to respond." : "The requested article could not be loaded.");
+
+                    console.error(
+                        "Failed to load article:",
+                        error
+                    );
+
+
+                    showArticleError(
+
+                        error.name === "AbortError"
+
+                            ? "নিবন্ধ সার্ভার থেকে উত্তর পেতে বেশি সময় লাগছে।"
+
+                            : "অনুরোধ করা সংবাদটি লোড করা যায়নি।"
+
+                    );
+
                 })
-                .finally(() => clearTimeout(timeout));
+
+
+                .finally(() => {
+
+                    clearTimeout(timeout);
+
+                });
+
         }
+
     </script>
+
 </body>
 </html>

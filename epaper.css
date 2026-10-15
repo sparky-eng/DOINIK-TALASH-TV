@@ -1,0 +1,243 @@
+/* ============================================================
+   DOINIK TALASH TV
+   E-PAPER CSS
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 1080px;
+    height: 1560px;
+
+    background: #ffffff;
+}
+
+body {
+    font-family: "Nikosh", serif;
+}
+
+
+/* ============================================================
+   MAIN PAGE
+   ============================================================ */
+
+.epaper-page {
+    position: relative;
+
+    width: 1080px;
+    height: 1560px;
+
+    padding: 35px 40px 70px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+
+    font-family: "Nikosh", serif;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.epaper-header {
+    width: 100%;
+
+    margin: 0 0 6px;
+
+    text-align: center;
+}
+
+.epaper-logo {
+    display: block;
+
+    width: 100%;
+    max-width: 1000px;
+
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    margin: 0 auto 6px;
+}
+
+.epaper-title {
+    width: 100%;
+
+    margin: 0 0 6px;
+
+    font-family: "Nikosh", serif;
+
+    font-size: 34px;
+    font-weight: bold;
+
+    line-height: 1.2;
+
+    text-align: center;
+}
+
+.epaper-date-row {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin: 0 0 8px;
+}
+
+.epaper-date-box {
+    flex: 1;
+
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 12px;
+
+    background: #28a745;
+
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    font-family: "Nikosh", serif;
+    font-size: 18px;
+    font-weight: normal;
+
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   ARTICLE AREA
+   ============================================================ */
+
+.epaper-content {
+    width: 100%;
+    height: 980px;
+
+    max-height: 980px;
+
+    font-family: "Nikosh", serif;
+    font-size: var(--article-font-size, 20px);
+
+    line-height: 1.38;
+
+    text-align: justify;
+    text-justify: inter-word;
+
+    word-spacing: -0.5px;
+    letter-spacing: 0;
+
+    column-count: 3;
+    column-gap: 20px;
+    column-fill: auto;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   ARTICLE IMAGE
+   ============================================================ */
+
+.epaper-image {
+    display: block;
+
+    width: 300px;
+    height: 300px;
+
+    object-fit: cover;
+
+    /*
+       Image remains exactly 300 × 300.
+    */
+
+    float: left;
+
+    margin: 0 15px 12px 0;
+}
+
+
+/* ============================================================
+   ARTICLE PARAGRAPHS
+   ============================================================ */
+
+.epaper-content p {
+    margin: 0 0 9px;
+    padding: 0;
+
+    font-family: "Nikosh", serif;
+    font-size: inherit;
+    line-height: inherit;
+
+    text-align: justify;
+    text-align-last: left;
+
+    text-justify: inter-word;
+
+    word-spacing: -0.5px;
+    letter-spacing: 0;
+
+    break-inside: avoid;
+}
+
+
+/* ============================================================
+   PREVENT BAD PARAGRAPH BREAKS
+   ============================================================ */
+
+.epaper-content p {
+    break-inside: avoid;
+}
+
+/* ============================================================
+   E-PAPER FOOTER / CONTACT DETAILS
+   ============================================================ */
+
+.epaper-footer {
+    position: absolute;
+
+    left: 40px;
+    right: 40px;
+
+    bottom: 8px;
+
+    height: 70px;
+
+    box-sizing: border-box;
+
+    border-top: 1px solid #777;
+
+    padding-top: 4px;
+
+    font-family: "Nikosh", serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    line-height: 1.25;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.epaper-footer div {
+    margin: 0;
+    padding: 0;
+}

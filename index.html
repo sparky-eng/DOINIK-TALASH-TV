@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DOINIK TALASH TV</title>
+    <title>দৈনিক তালাশ টিভি</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,19 +13,99 @@
 <body>
 
     <header>
-       <img src="logo.jpg" alt="DOINIK TALASH TV" class="site-logo">
-        <p>Your trusted source for the latest news</p>
 
-        <form class="search-box" action="search.html" method="GET">
-            <input
-                type="text"
-                id="search-input"
-                name="query"
-                placeholder="Search news..."
+    <div class="header-main">
+
+        <div class="header-brand">
+
+            <img
+                src="logo.jpg"
+                alt="দৈনিক তালাশ টিভি"
+                class="site-logo"
             >
-            <button type="submit" id="search-button">Search</button>
-        </form>
-    </header>
+
+            <p>সত্যের সন্ধানে, মানুষের পাশে</p>
+
+        </div>
+
+        <a
+            href="/epaper"
+            class="epaper-header-button"
+        >
+
+            <svg
+                class="epaper-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <rect
+                    x="3"
+                    y="4"
+                    width="18"
+                    height="16"
+                    rx="2"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                ></rect>
+
+                <line
+                    x1="7"
+                    y1="8"
+                    x2="17"
+                    y2="8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                ></line>
+
+                <line
+                    x1="7"
+                    y1="12"
+                    x2="17"
+                    y2="12"
+                    stroke="currentColor"
+                    stroke-width="2"
+                ></line>
+
+                <line
+                    x1="7"
+                    y1="16"
+                    x2="13"
+                    y2="16"
+                    stroke="currentColor"
+                    stroke-width="2"
+                ></line>
+            </svg>
+
+            <span>ই-পেপার</span>
+
+        </a>
+
+    </div>
+
+    <form
+        class="search-box"
+        action="search.html"
+        method="GET"
+    >
+
+        <input
+            type="text"
+            id="search-input"
+            name="query"
+            placeholder="সংবাদ খুঁজুন..."
+        >
+
+        <button
+            type="submit"
+            id="search-button"
+        >
+            খুঁজুন
+        </button>
+
+    </form>
+
+</header>
 
     <nav id="main-nav">
         <a href="index.html">হোম</a>
@@ -36,58 +116,68 @@
         <a href="category.html?category=business">ব্যবসা</a>
         <a href="category.html?category=technology">প্রযুক্তি</a>
         <a href="category.html?category=entertainment">বিনোদন</a>
-       <details class="nav-more">
-    <summary aria-label="More options">⋮</summary>
 
-    <div class="nav-more-menu">
-        <a href="volunteer-login.html">Volunteer Login</a>
-    </div>
-</details>
+        <details class="nav-more">
+            <summary aria-label="আরও">⋮</summary>
+
+            <div class="nav-more-menu">
+                <a href="volunteer-login.html">স্বেচ্ছাসেবক লগইন</a>
+            </div>
+        </details>
     </nav>
 
     <main>
 
         <section class="breaking-news">
-    <strong>BREAKING NEWS</strong>
-    <span id="breaking-news-text">Loading latest breaking news...</span>
-</section>
+            <strong>জরুরি সংবাদ</strong>
+            <span id="breaking-news-text">সর্বশেষ জরুরি সংবাদ লোড হচ্ছে...</span>
+        </section>
 
         <section class="featured">
-            <h2>Featured News</h2>
 
-           <article id="featured-article">
-    <div class="featured-image">
-        <img
-            id="featured-image"
-            src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80"
-            alt="Featured news">
-    </div>
+            <h2>ফিচার নিউজ</h2>
 
-    <div class="featured-content">
-        <span class="category" id="featured-category">NATIONAL</span>
+            <article id="featured-article">
 
-        <h3 id="featured-title">
-            Loading featured news...
-        </h3>
+                <div class="featured-image">
+                    <img
+                        id="featured-image"
+                        src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=80"
+                        alt="ফিচার সংবাদ">
+                </div>
 
-        <p id="featured-description">
-            Loading the latest featured story...
-        </p>
+                <div class="featured-content">
 
-        <a id="featured-link" href="article.html?id=1" class="read-more">
-            Read More
-        </a>
-    </div>
-</article>
+                    <span class="category" id="featured-category">জাতীয়</span>
+
+                    <h3 id="featured-title">
+                        ফিচার সংবাদ লোড হচ্ছে...
+                    </h3>
+
+                    <p id="featured-description">
+                        সর্বশেষ ফিচার সংবাদ লোড হচ্ছে...
+                    </p>
+
+                    <a
+                        id="featured-link"
+                        href="article.html?id=1"
+                        class="read-more"
+                    >
+                        বিস্তারিত পড়ুন
+                    </a>
+
+                </div>
+
+            </article>
 
         </section>
 
         <section class="latest-news">
 
-            <h2>Latest News</h2>
+            <h2>সর্বশেষ সংবাদ</h2>
 
             <div class="news-grid" id="api-news-grid">
-                <p>Loading latest news...</p>
+                <p>সর্বশেষ সংবাদ লোড হচ্ছে...</p>
             </div>
 
         </section>
@@ -95,7 +185,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 DOINIK TALASH TV. All rights reserved.</p>
+        <p>&copy; ২০২৬ দৈনিক তালাশ টিভি। সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
 
     <script src="script.js"></script>
